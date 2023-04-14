@@ -209,60 +209,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  // Center(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child: Container(
-                  //       padding: EdgeInsets.symmetric(horizontal: 10),
-                  //       decoration: BoxDecoration(
-                  //           color: Colors.black,
-                  //           borderRadius: BorderRadius.circular(10)),
-                  //       child: TextButton(
-                  //         onPressed: () => setState(() {
-                  //           if (isBPMEnabled) {
-                  //             isBPMEnabled = false;
-
-                  //             CoolAlert.show(
-                  //               context: context,
-                  //               type: CoolAlertType.success,
-                  //               text:
-                  //                   'Your Heart Rate BPM is : ${sum == null ? null : sum! ~/ weight!}',
-                  //               titleTextStyle: TextStyle(
-                  //                 color: Colors.blue[900],
-                  //                 fontSize: 16,
-                  //                 fontWeight: FontWeight.bold,
-                  //               ),
-                  //               textTextStyle: TextStyle(
-                  //                 color: Colors.blue[500],
-                  //                 fontSize: 14,
-                  //               ),
-                  //             );
-                  //           } else
-                  //             isBPMEnabled = true;
-                  //         }),
-                  //         child: Text(
-                  //           isBPMEnabled ? "Stop measurement" : "Measure BPM",
-                  //           style: TextStyle(color: Colors.white, fontSize: 20),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // )
                 ],
               ),
-
-              // child: ElevatedButton.icon(
-              //   icon: Icon(Icons.favorite_rounded),
-              //   label: Text(isBPMEnabled ? "Stop measurement" : "Measure BPM"),
-              //   onPressed: () => setState(() {
-              //     if (isBPMEnabled) {
-              //       isBPMEnabled = false;
-              //       // dialog.
-              //     } else
-              //       isBPMEnabled = true;
-              //   }),
-              // ),
-              // ),
             ],
           ),
         ],
