@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:flutter/material.dart';
 import 'package:heart/main.dart';
 import 'package:heart_bpm/chart.dart';
@@ -163,44 +163,91 @@ class _HomePageState extends State<HomePage> {
                           height: 10,
                         ),
                   Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: TextButton(
-                          onPressed: () => setState(() {
-                            if (isBPMEnabled) {
-                              isBPMEnabled = false;
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          if (isBPMEnabled) {
+                            isBPMEnabled = false;
 
-                              CoolAlert.show(
-                                context: context,
-                                type: CoolAlertType.success,
-                                text:
-                                    'Your Heart Rate BPM is : ${sum == null ? null : sum! ~/ weight!}',
-                                titleTextStyle: TextStyle(
-                                  color: Colors.blue[900],
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textTextStyle: TextStyle(
-                                  color: Colors.blue[500],
-                                  fontSize: 14,
-                                ),
-                              );
-                            } else
-                              isBPMEnabled = true;
-                          }),
-                          child: Text(
-                            isBPMEnabled ? "Stop measurement" : "Measure BPM",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
+                            CoolAlert.show(
+                              context: context,
+                              type: CoolAlertType.success,
+                              text:
+                                  'Your Heart Rate BPM is : ${sum == null ? null : sum! ~/ weight!}',
+                              titleTextStyle: TextStyle(
+                                color: Colors.blue[900],
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textTextStyle: TextStyle(
+                                color: Colors.blue[500],
+                                fontSize: 14,
+                              ),
+                            );
+                          } else
+                            isBPMEnabled = true;
+                        });
+                      },
+                      child: OutlineGradientButton(
+                        child: Text(
+                          isBPMEnabled ? "Stop measurement" : "Measure BPM",
+                          style: TextStyle(
+                              color: isBPMEnabled ? Colors.black : Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
                         ),
+                        gradient: SweepGradient(
+                          colors: List.generate(
+                              360,
+                              (h) => HSLColor.fromAHSL(1, h.toDouble(), 1, 0.5)
+                                  .toColor()),
+                        ),
+                        strokeWidth: 2,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                        radius: Radius.circular(8),
                       ),
                     ),
-                  )
+                  ),
+                  // Center(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Container(
+                  //       padding: EdgeInsets.symmetric(horizontal: 10),
+                  //       decoration: BoxDecoration(
+                  //           color: Colors.black,
+                  //           borderRadius: BorderRadius.circular(10)),
+                  //       child: TextButton(
+                  //         onPressed: () => setState(() {
+                  //           if (isBPMEnabled) {
+                  //             isBPMEnabled = false;
+
+                  //             CoolAlert.show(
+                  //               context: context,
+                  //               type: CoolAlertType.success,
+                  //               text:
+                  //                   'Your Heart Rate BPM is : ${sum == null ? null : sum! ~/ weight!}',
+                  //               titleTextStyle: TextStyle(
+                  //                 color: Colors.blue[900],
+                  //                 fontSize: 16,
+                  //                 fontWeight: FontWeight.bold,
+                  //               ),
+                  //               textTextStyle: TextStyle(
+                  //                 color: Colors.blue[500],
+                  //                 fontSize: 14,
+                  //               ),
+                  //             );
+                  //           } else
+                  //             isBPMEnabled = true;
+                  //         }),
+                  //         child: Text(
+                  //           isBPMEnabled ? "Stop measurement" : "Measure BPM",
+                  //           style: TextStyle(color: Colors.white, fontSize: 20),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // )
                 ],
               ),
 
